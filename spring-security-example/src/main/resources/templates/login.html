@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Rotten Potatoes Login Screen</title>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+
+		<div th:if="${param.error}">
+			<div class="alert alert-danger">Your username and password is
+				invalid.</div>
+		</div>
+		<div th:if="${param.message}">
+			<div class="alert alert-info">You have been logged out
+				successfully.</div>
+		</div>
+		<div class="card card-container">
+			<p id="profile-name" class="profile-name-card"></p>
+
+			<form class="form-signin" action="#" th:action="@{/login}"
+				method="post">
+				<input type="text" name="username" id="username"
+					class="form-control" placeholder="User Name" required autofocus>
+				<input type="password" name="password" id="password"
+					class="form-control" placeholder="Password" required>
+				<button class="btn btn-lg btn-primary btn-block btn-signin"
+					type="submit">Sign in</button>
+			</form>
+			<!-- /form -->
+			<a href="#" class="forgot-password"> Forgot the password? </a>
+		</div>
+		<!-- /card-container -->
+	</div>
+	<!-- /container -->
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="UTF-8">
+<title>Movies Fragment</title>
+</head>
+<body>
+	<div th:fragment="directorlist">
+		<h2 class="mb-5">Directors List</h2>
+
+		<div class="x_content">
+			<div id="docmodalholder"></div>
+			<table class="table table-dark table-hover"
+				cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="d : ${directors}">
+						<td th:text="${d.getDirectorid()}"><a
+							href="/director/${doc.getDirectorid()}">ID</a></td>
+						<td th:text="${d.getName()}">Name</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	</div>
+</body>
+</html>

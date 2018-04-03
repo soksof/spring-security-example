@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Rotten Potatoes user Registration</title>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<body>
+	<div class="container">
+		<form th:action="@{/registration}" th:object="${user}" method="POST" class="form-signin">
+			<h2 class="form-signin-heading">Create your account</h2>
+ 
+			<div class="form-group" th:classappend="${#fields.hasErrors('username')} ? 'has-error' : ''">
+				<input type="text" th:field="*{username}" class="form-control" placeholder="Username" autofocus/>
+				<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">..</span>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('*{name}')} ? 'has-error' : ''">
+				<input type="text" th:field="*{name}" class="form-control" placeholder="First name" autofocus/>
+				<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('password')} ? 'has-error' : ''">
+				<input type="password" th:field="*{password}" class="form-control" placeholder="password" autofocus/>
+				<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Register account</button>
+			<h4 class="text-center"><a th:href="@{/}">Cancel</a></h4>
+		</form>
+
+	</div>
+	<!-- /container -->
+	<script src="../vendor/jquery/jquery.min.js" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
